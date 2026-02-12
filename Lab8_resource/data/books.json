@@ -1,10 +1,6 @@
 {
   "books": [
     {
-      "bookNo": 1,
-      "bookName": "Game of Thrones"
-    },
-    {
       "bookNo": 2,
       "bookName": "Clash of Kings"
     },

@@ -1,5 +1,116 @@
-body{font-family:system-ui,Arial,sans-serif;max-width:720px;margin:40px auto;padding:0 16px}
-form{display:flex;gap:8px;margin:12px 0 20px}
-input{flex:1;padding:10px}
-button{padding:10px 14px;cursor:pointer}
-#book-list div{padding:8px 0;border-bottom:1px solid #eee}
+:root{
+  --bg1:#c7f9ff;
+  --bg2:#b7c7ff;
+  --bg3:#f1f5ff;
+
+  --primary1:#38bdf8;
+  --primary2:#60a5fa;
+
+  --card:rgba(255,255,255,.88);
+  --text:#0f172a;
+  --muted:#64748b;
+  --line:rgba(15,23,42,.10);
+  --shadow:0 14px 34px rgba(2,6,23,.12);
+  --radius:18px;
+
+}
+
+*{box-sizing:border-box}
+body{
+  font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif;
+  margin:0;
+  min-height:100vh;
+  color:var(--text);
+  padding:48px 16px;
+
+  /* calmer gradient background */
+  background:
+    radial-gradient(900px 520px at 12% 12%, rgba(255,255,255,.55), transparent 62%),
+    radial-gradient(700px 480px at 88% 18%, rgba(255,255,255,.40), transparent 60%),
+    linear-gradient(135deg, var(--bg1), var(--bg2) 55%, var(--bg3));
+}
+
+h1{
+  margin:0 0 10px;
+  letter-spacing:-.02em;
+  color:rgba(15,23,42,.92);
+}
+h2{
+  margin:18px 0 10px;
+  font-size:18px;
+  color:rgba(15,23,42,.78);
+}
+
+.container{
+  max-width:760px;
+  margin:0 auto;
+}
+
+.card{
+  background:var(--card);
+  border:1px solid rgba(255,255,255,.70);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:18px;
+  backdrop-filter: blur(10px);
+}
+
+form{
+  display:flex;
+  gap:10px;
+  margin:12px 0 16px;
+}
+
+input{
+  flex:1;
+  padding:12px 12px;
+  border-radius:14px;
+  border:1px solid var(--line);
+  outline:none;
+  background:rgba(255,255,255,.92);
+  transition:.15s ease;
+}
+input::placeholder{color:var(--muted)}
+input:focus{
+  border-color:rgba(167,139,250,.55);
+  box-shadow:0 0 0 4px rgba(167,139,250,.16);
+}
+
+button{
+  padding:12px 14px;
+  border:0;
+  border-radius:14px;
+  cursor:pointer;
+  font-weight:600;
+  color:white;
+  background:linear-gradient(135deg, var(--primary1), var(--primary2));
+  box-shadow:0 10px 18px rgba(2,6,23,.12);
+  transition: transform .12s ease, filter .12s ease, box-shadow .12s ease;
+}
+button:hover{
+  filter:brightness(1.03);
+  transform: translateY(-1px);
+  box-shadow:0 12px 22px rgba(2,6,23,.14);
+}
+button:active{
+  transform: translateY(0px);
+  box-shadow:0 8px 14px rgba(2,6,23,.12);
+}
+
+#book-list{
+  margin-top:10px;
+}
+#book-list > div{
+  padding:10px 6px;
+  border-bottom:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+#book-list > div:last-child{border-bottom:0}
+
+@media (max-width:520px){
+  form{flex-direction:column}
+  button{width:100%}
+}
